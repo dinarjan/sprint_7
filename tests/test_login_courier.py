@@ -5,9 +5,8 @@ import allure
 
 class TestLoginCourier:
     @allure.title('Проверка логина курьера')
-    def test_login_courier(self):
+    def test_login_courier(self, courier_create):
         payload = data.courier_data
-        CourierMethods.create_courier(payload)
         courier_response = CourierMethods.login_courier(payload)
         assert courier_response[0]['id'] and courier_response[1] == 200
 
